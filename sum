@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+int sum(int arr[],int len,int x)
+{
+    int i,j;
+    for ( i = 0; i < len-1; i++)
+    {
+        for (j = i+1; i < len; i++)
+        {
+            if(arr[i]+arr[j]==x){
+                cout<<arr[i]<<"+"<<arr[j]<<"="<<x;
+                break;
+            }
+
+        }
+        if (arr[i]+arr[j]==x)
+        {
+        break;
+        }
+        
+ 
+    }
+
+
+    if (arr[i]+arr[j]!=x)
+    {
+        cout<<"not found"<<endl;
+    }}
+    
+
+int main(){
+    int x=55;
+    int arr[]={2,1,0};
+    int len=sizeof(arr)/sizeof(arr[0]);
+    sum(arr,len,x);
+}
