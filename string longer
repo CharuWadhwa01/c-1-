@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+bool IsLonger(string str1, string str2){
+
+    if(str1.length()>str2.length())
+
+        return 1;
+
+    else
+         return 0; 
+}
+int main(){
+    string str1, str2;
+
+    cin >> str1 >> str2;
+
+    cout << str1 << ", " << str2 << " : " << IsLonger(str1, str2);
+
+    return 0;
+}
