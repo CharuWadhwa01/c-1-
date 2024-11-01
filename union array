@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+void findUnion(int arr1[], int len1, int arr2[], int len2) {
+    int i = 0, j = 0;
+    cout << "Union of the two arrays: ";
+    while (i < len1 && j < len2) {
+        if (arr1[i] < arr2[j]) {
+            cout << arr1[i] << " ";
+            i++;
+        }
+        else if (arr1[i] > arr2[j]) {
+            cout << arr2[j] << " ";
+            j++;
+        }
+        else {
+            cout << arr1[i] << " ";
+            i++;
+            j++;
+        }
+    }
+
+    while (i < len1) {
+        cout << arr1[i] << " ";
+        i++;
+    }
+
+    while (j < len2) {
+        cout << arr2[j] << " ";
+        j++;
+    }
+
+    cout << endl;
+}
+
+int main() {
+    int arr1[] = {10, 20, 30, 40, 50};
+    int arr2[] = {15, 20, 30, 45, 50, 60};
+    int len1 = sizeof(arr1) / sizeof(arr1[0]);
+    int len2 = sizeof(arr2) / sizeof(arr2[0]);
+
+    findUnion(arr1, len1, arr2, len2);
+
+    return 0;
+}
