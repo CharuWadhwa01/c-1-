@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int secondsmallest(int arr[], int len) 
+{
+    int smallest=0,secondsmallest=-1;
+    for (int i = 0; i < len; i++)
+    {
+        if (arr[i] < arr[smallest]){
+            smallest = i;
+        }
+    }
+    for (int i = 0; i < len; i++) {
+        if (arr[i] != arr[smallest]) {
+            if (secondsmallest==-1)
+                secondsmallest = i;
+             if (arr[i] < arr[secondsmallest]){
+                secondsmallest= i;
+            }
+        }
+    }
+    cout<<"second smallest is"<<arr[secondsmallest]<<endl;
+}
+int main() {
+    int arr[] = {4,5,6,78,54,67,65,23,123};
+    int len = sizeof(arr)/sizeof(arr[0]);
+    secondsmallest(arr, len);
+}
