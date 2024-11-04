@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int sumall(int arr[], int len) 
+{
+    int sum=0;
+    for (int i = 0; i < len; i++)
+    {
+        sum+=arr[i];
+        }
+        cout<<" sum is:"<<sum<<endl;
+  
+}
+int main() {
+    int arr[] = {2,4,6,7};
+    int len = sizeof(arr)/sizeof(arr[0]);
+    sumall(arr, len);
+}
