@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int smallest(int arr[], int len) 
+{
+    int smallest=0;
+    for (int i = 0; i < len; i++)
+    {
+        if (arr[i] < arr[smallest]){
+            smallest = i;
+        }
+    }
+    
+    cout<<" smallest is "<<arr[smallest]<<endl;
+}
+int main() {
+    int arr[] = {2,4,5,6,78,54,67,65,23,123,255};
+    int len = sizeof(arr)/sizeof(arr[0]);
+    smallest(arr, len);
+}
