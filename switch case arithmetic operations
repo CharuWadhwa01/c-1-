@@ -1,0 +1,33 @@
+
+#include <iostream>
+using namespace std;
+int operationChoices(int c, int a, int b) {
+    switch(c) {
+        case 1:
+            return a + b;  
+        case 2:
+            return a - b;  
+        case 3:
+            return a * b; 
+        case 4:
+                return a / b;  
+        default:
+        cout << "Error: Invalid operation code." << endl;
+            return 0;  
+    }
+}
+
+int main() {
+    int c, a, b;
+
+    cout << "Enter first integer (a): ";
+    cin >> a;
+    cout << "Enter second integer (b): ";
+    cin >> b;
+     cout << "Enter operation code (1-4): ";
+    cin >> c;
+    int result = operationChoices(c, a, b);
+    cout << "Result: " << result << endl;
+   
+    return 0;
+}
