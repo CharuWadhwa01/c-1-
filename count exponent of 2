@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+int countExponentsOf2(int n) {
+    int count = 0;
+    while (n % 2 == 0) {
+        n /= 2;
+        count++;
+    }
+    return count;
+}
+
+int MaxExponents(int a, int b) {
+    int maxExponent = 0;
+    int numberWithMaxExponent = a;
+
+    for (int i = a; i <= b; ++i) {
+        int exponent = countExponentsOf2(i);
+        if (exponent > maxExponent) {
+            maxExponent = exponent;
+            numberWithMaxExponent = i;
+        } else if (exponent == maxExponent && i < numberWithMaxExponent) {
+            numberWithMaxExponent = i;
+        }
+    }
+
+    return numberWithMaxExponent;
+}
+
+int main() {
+    int a = 7;
+    int b = 12;
+    cout << "Number with maximum exponent of 2 between " << a << " and " << b << " is: " << MaxExponents(a, b) << std::endl;
+    return 0;
+}
