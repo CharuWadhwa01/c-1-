@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+// Virtual base class
+class Shape {
+public:
+ virtual void draw() const {
+ cout << "Drawing a shape." << endl;
+ }
+};
+// Derived class 1
+class Circle : virtual public Shape {
+public:
+ void draw() const override {
+ cout << "Drawing a circle." << endl;
+ }
+};
+// Derived class 2
+class Square : virtual public Shape {
+public:
+ void draw() const override {
+ cout << "Drawing a square." << endl;
+ }
+};
+ // Derived class inheriting from both Circle and Square
+class Ellipse : public Circle, public Square {
+public:
+ /* The draw function in Ellipse is not mandatory, but it
+can be provided */
+ /* to resolve any ambiguity in case both Circle and
+Square have overridden the draw function. */
+ void draw() const override {
+ cout << "Drawing an ellipse." << endl;
+ }
+};
+int main() {
+ Ellipse ellipse;
+
+ // Calls the draw function from Ellipse
+ ellipse.draw();
+ // Calls the draw function from the virtual base class
+ ellipse.Shape::draw();
+ return 0;
+}
