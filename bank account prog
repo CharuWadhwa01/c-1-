@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+class BankAccount {
+public:
+ static double interestRate; // Static member data
+ int accountNumber;
+ double balance;
+ // Constructor to initialize the account number and balance
+ BankAccount(int accNum, double bal) : accountNumber(accNum),
+balance(bal) {}
+ // Static member function to set the interest rate
+ static void setInterestRate(double rate) {
+ interestRate = rate;
+ }
+};
+// Initializing static member data outside the class
+double BankAccount::interestRate = 0.05;
+int main() 
+{
+ BankAccount acc1(1001, 5000.0);
+ BankAccount acc2(1002, 8000.0);
+ cout << "Interest Rate: " << BankAccount::interestRate << endl;
+ // Accessing static member using an instance (though not recommended)
+ cout << "Interest Rate (via instance): " << acc1.interestRate << endl;
+ // Changing the interest rate using a static member function
+BankAccount::setInterestRate(0.06);
+}
