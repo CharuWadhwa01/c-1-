@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int rollNumber;
+    double GPA;
+    static int totalStudents; // Private static member variable
+
+public:
+    // Constructor
+    Student(string n, int roll, double gpa) : name(n), rollNumber(roll), GPA(gpa) {
+        // Increment totalStudents when a new object is created
+        totalStudents++;
+    }
+
+    // Friend function declaration
+    friend void displayDetails(const Student&);
+
+    // Static member function to access and update totalStudents
+    static void updateTotalStudents() {
+        cout << "Total Students: " << totalStudents << "\n";
+    }
+
+    // Member function using this pointer
+    void displayAddress() {
+        cout << "Address of the current object: " << this << "\n";
+    }
+};
+
+// Initialize static member variable
+int Student::totalStudents = 0;
+
+// Friend function definition
+void displayDetails(const Student& s) {
+    cout << "Name: " << s.name << "\n";
+    cout << "Roll Number: " << s.rollNumber << "\n";
+    cout << "GPA: " << s.GPA << "\n";
+}
+
+int main() {
+    // Create an object of the Student class
+    Student student1("John Doe", 12345, 3.75);
+
+    // Use friend function to display details
+    displayDetails(student1);
+
+    // Demonstrate static member function
+    Student::updateTotalStudents(); // Total Students: 1
+
+    // Demonstrate member function using this pointer
+    student1.displayAddress();
+
+    return 0;
+}
