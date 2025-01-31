@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+class MathOperations {
+public:
+ // Static member function to add two numbers
+ static int add(int a, int b) {
+ return a + b;
+ }
+ // Static member function to multiply two numbers
+ static int multiply(int a, int b) {
+ return a * b;
+ }
+};
+int main() {
+ int sum = MathOperations::add(5, 3);
+ int product = MathOperations::multiply(4, 7);
+ cout << "Sum: " << sum << endl;
+ cout << "Product: " << product << endl;
+ return 0;
+}
